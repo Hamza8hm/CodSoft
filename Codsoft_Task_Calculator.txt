@@ -1,0 +1,41 @@
+print("==== My Personal Calculator ====")
+
+# Take user inputs
+first_input = input("Enter first number: ")
+second_input = input("Enter second number: ")
+
+# Convert to float (or int)
+try:
+    a = float(first_input)
+    b = float(second_input)
+except:
+    print("Invalid numbers entered. Please run again.")
+    exit()
+
+# Ask operation
+print("Choose operation to perform:")
+print("1. Add (+)")
+print("2. Subtract (-)")
+print("3. Multiply (*)")
+print("4. Divide (/)")
+
+operation = input("Enter symbol (+, -, *, /): ")
+
+# Process
+if operation == '+':
+    answer = a + b
+    print("Result =", answer)
+elif operation == '-':
+    answer = a - b
+    print("Result =", answer)
+elif operation == '*':
+    answer = a * b
+    print("Result =", answer)
+elif operation == '/':
+    if b != 0:
+        answer = a / b
+        print("Result =", answer)
+    else:
+        print("Can't divide by zero.")
+else:
+    print("Invalid operation selected.")

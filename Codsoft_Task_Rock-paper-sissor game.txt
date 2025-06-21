@@ -1,0 +1,60 @@
+import random
+
+print("=== Welcome to Rock - Paper - Scissors Game ===")
+
+user_score = 0
+computer_score = 0
+
+while True:
+    print("\nChoose one of the following:")
+    print("1. Rock")
+    print("2. Paper")
+    print("3. Scissors")
+
+    user_input = input("Your choice (rock/paper/scissors): ").lower()
+
+    if user_input not in ["rock", "paper", "scissors"]:
+        print("Oops! That's not a valid choice. Try again.")
+        continue
+
+    options = ["rock", "paper", "scissors"]
+    computer_input = random.choice(options)
+
+    print("You chose:", user_input)
+    print("Computer chose:", computer_input)
+
+    # Deciding the winner
+    if user_input == computer_input:
+        print("It's a Tie!")
+    elif user_input == "rock":
+        if computer_input == "scissors":
+            print("You Win! Rock crushes Scissors.")
+            user_score += 1
+        else:
+            print("You Lose! Paper covers Rock.")
+            computer_score += 1
+    elif user_input == "paper":
+        if computer_input == "rock":
+            print("You Win! Paper covers Rock.")
+            user_score += 1
+        else:
+            print("You Lose! Scissors cut Paper.")
+            computer_score += 1
+    elif user_input == "scissors":
+        if computer_input == "paper":
+            print("You Win! Scissors cut Paper.")
+            user_score += 1
+        else:
+            print("You Lose! Rock crushes Scissors.")
+            computer_score += 1
+
+    # Showing the current score
+    print("\nScoreboard:")
+    print("You:", user_score)
+    print("Computer:", computer_score)
+
+    # Ask if user wants to play again
+    play_more = input("\nDo you want to play again? (yes/no): ").lower()
+    if play_more != "yes":
+        print("Thanks for playing! 👋")
+        break
